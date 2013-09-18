@@ -1,0 +1,29 @@
+<h1>Listing jugadores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Posicion</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jugadores.each do |jugadore| %>
+      <tr>
+        <td><%= jugadore.nombre %></td>
+        <td><%= jugadore.posicion %></td>
+        <td><%= link_to 'Show', jugadore %></td>
+        <td><%= link_to 'Edit', edit_jugadore_path(jugadore) %></td>
+        <td><%= link_to 'Destroy', jugadore, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Jugadore', new_jugadore_path %>
