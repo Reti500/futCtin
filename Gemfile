@@ -10,6 +10,10 @@ gem 'pg'
 # Use sorcery
 gem 'sorcery'
 
+# Use devise
+gem 'devise', '~> 3.0.0.rc'
+gem 'protected_attributes'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
