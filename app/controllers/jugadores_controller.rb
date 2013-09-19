@@ -1,6 +1,6 @@
 class JugadoresController < ApplicationController
   before_action :set_jugadore, only: [:show, :edit, :update, :destroy]
-  before_filter :require_login, only: [:edit, :update, :destroy]
+  before_filter :require_login, only: [:destroy]
   # GET /jugadores
   # GET /jugadores.json
   def index
