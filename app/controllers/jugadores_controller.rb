@@ -4,7 +4,7 @@ class JugadoresController < ApplicationController
   # GET /jugadores
   # GET /jugadores.json
   def index
-    @jugadores = Jugadore.all
+    @jugadores = Jugadore.all.order("id ASC")
   end
 
   # GET /jugadores/1
