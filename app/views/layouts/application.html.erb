@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-default" role="navigation">
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -26,14 +26,14 @@
         <li><%= link_to "Equipos", root_url %></li>
         <li><%= link_to "Rol de juego", root_url %></li>
         <li><%= link_to "Tabla", root_url %></li>
-        <li><%= link_to "Jugadores", root_url %></li>
+        <li><%= link_to "Jugadores", jugadores_url %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
        <li><%= link_to "Login", login_url %></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </nav>
-
+  <br><br>
   <center>
 	  <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, :id => "flash_#{name}" %>

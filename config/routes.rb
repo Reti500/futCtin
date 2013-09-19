@@ -1,5 +1,7 @@
 FutCtin::Application.routes.draw do
 
+  get "jugadores" => "jugadores#index", :as => "jugadores"
+
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
@@ -8,7 +10,7 @@ FutCtin::Application.routes.draw do
   resources :users
   resources :sessions
 
-  root "jugadores#index"
+  root "home#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

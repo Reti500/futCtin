@@ -1,19 +1,24 @@
 <p id="notice"><%= notice %></p>
-<br><br>
-<p>
-  <strong>Nombre:</strong>
-  <%= @jugadore.nombre %>
-</p>
-<br><br>
-<p>
-  <strong>Posicion:</strong>
-  <%= @jugadore.posicion %>
-</p>
-<br><br>
-<p>
-  <strong>Posicion:</strong>
-  <%= @jugadore.rating %>
-</p>
-<br><br>
-<%= link_to 'Edit', edit_jugadore_path(@jugadore) %> |
-<%= link_to 'Back', jugadores_path %>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Posicion</th>
+      <th>Rating</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @jugadore.nombre %></td>
+        <td><%= @jugadore.posicion %></td>
+        <td><%= @jugadore.rating %></td>
+        <td><%= link_to 'Edit', edit_jugadore_path(@jugadore) %></td>
+        <td><%= link_to 'Destroy', @jugadore, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  </tbody>
+</table>
