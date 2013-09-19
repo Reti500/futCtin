@@ -24,7 +24,7 @@ class JugadoresController < ApplicationController
   # POST /jugadores
   # POST /jugadores.json
   def create
-    @jugadore = Jugadore.new(jugadore_params)
+    @jugadore = Jugadore.new( params[:jugadore] )
 
     respond_to do |format|
       if @jugadore.save
@@ -41,7 +41,7 @@ class JugadoresController < ApplicationController
   # PATCH/PUT /jugadores/1.json
   def update
     respond_to do |format|
-      if @jugadore.update(jugadore_params)
+      if @jugadore.update( params[:jugadore] )
         format.html { redirect_to @jugadore, notice: 'Jugadore was successfully updated.' }
         format.json { head :no_content }
       else

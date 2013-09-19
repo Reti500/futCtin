@@ -12,12 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :nombre %><br>
+    <%= f.label :nombre %>
     <%= f.text_field :nombre %>
   </div>
+  <br>
+  <div class="field">
+    <%= f.label :rating %>
+    <%= f.text_field :rating, :placeholder => "Entre 1 - 10" %>
+  </div>
+  <br>
   <div class="field">
     <%= f.select :posicion, options_for_select([["Portero", "por"], ["Defensa", "def"], ["Medio", "med"], ["Delantero", "del"]]) %>
   </div>
+  <br>
   <div class="actions">
     <%= f.submit %>
   </div>

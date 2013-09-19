@@ -1,10 +1,13 @@
 <h1>Listing jugadores</h1>
+<br>
+<h3>Total de jugadores ->  <%= @jugadores.length %></h3>
 <br><br>
 <table>
   <thead>
     <tr>
       <th>Nombre</th>
       <th>Posicion</th>
+      <th>Rating</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,6 +19,7 @@
       <tr>
         <td><%= jugadore.nombre %></td>
         <td><%= jugadore.posicion %></td>
+        <td><%= jugadore.rating %></td>
         <td><%= link_to 'Show', jugadore %></td>
         <td><%= link_to 'Edit', edit_jugadore_path(jugadore) %></td>
         <td><%= link_to 'Destroy', jugadore, method: :delete, data: { confirm: 'Are you sure?' } %></td>
