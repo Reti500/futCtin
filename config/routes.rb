@@ -1,4 +1,5 @@
 FutCtin::Application.routes.draw do
+  get "equipos" => "equipos#index", :as => "equipos"
 
   get "jugadores" => "jugadores#index", :as => "jugadores"
 
@@ -9,6 +10,7 @@ FutCtin::Application.routes.draw do
   resources :jugadores
   resources :users
   resources :sessions
+  resources :equipos
 
   root "home#index"
   # The priority is based upon order of creation: first created -> highest priority.
