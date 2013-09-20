@@ -11,3 +11,8 @@
  *= require_self
  *= require_tree .
  */
+
+ .myTabla{
+	position: relative;
+	width: 50%;
+}

@@ -2,33 +2,42 @@
 <br>
 <h3>Total de jugadores ->  <%= @jugadores.length %></h3>
 <br><br>
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Posicion</th>
-      <th>Rating</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @jugadores.each do |jugadore| %>
-      <tr>
-        <td><%= jugadore.nombre %></td>
-        <td><%= jugadore.posicion %></td>
-        <td><%= jugadore.rating %></td>
-        <% if current_user %>
-          <td><%= link_to 'Show', jugadore %></td>
-          <td><%= link_to 'Edit', edit_jugadore_path(jugadore) %></td>
-          <td><%= link_to 'Destroy', jugadore, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<div class="myTabla">
+<div class="panel panel-primary">
+  <div class="panel-heading">Lista de jugadores</div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Posicion</th>
+          <th>Rating</th>
+          <% if current_user %>
+            <th></th>
+            <th></th>
+            <th></th>
+          <% end %>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @jugadores.each do |jugadore| %>
+          <tr>
+            <td><%= jugadore.nombre %></td>
+            <td><%= jugadore.posicion %></td>
+            <td><%= jugadore.rating %></td>
+            <% if current_user %>
+              <td><%= link_to 'Show', jugadore %></td>
+              <td><%= link_to 'Edit', edit_jugadore_path(jugadore) %></td>
+              <td><%= link_to 'Destroy', jugadore, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
 
 <br>
 <% if current_user %>
