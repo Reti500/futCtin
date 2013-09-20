@@ -1,26 +1,31 @@
 <p id="notice"><%= notice %></p>
 <br>
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Posicion</th>
-      <th>Rating</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="myTabla">
+  <div class="panel panel-info">
+    <div class="panel-heading">Jugador</div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Posicion</th>
+          <th>Rating</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
 
-  <tbody>
-      <tr>
-        <td><%= @jugadore.nombre %></td>
-        <td><%= @jugadore.posicion %></td>
-        <td><%= @jugadore.rating %></td>
-        <% if curren_user %>
-          <td><%= link_to 'Edit', edit_jugadore_path(@jugadore) %></td>
-          <td><%= link_to 'Destroy', @jugadore, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-  </tbody>
-</table>
+      <tbody>
+          <tr>
+            <td><%= @jugadore.nombre %></td>
+            <td><%= @jugadore.posicion %></td>
+            <td><%= @jugadore.rating %></td>
+            <% if current_user %>
+              <td><%= link_to 'Edit', edit_jugadore_path(@jugadore) %></td>
+              <td><%= link_to 'Destroy', @jugadore, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

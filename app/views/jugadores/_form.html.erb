@@ -1,3 +1,4 @@
+<div class="formulario">
 <%= form_for(@jugadore) do |f| %>
   <% if @jugadore.errors.any? %>
     <div id="error_explanation">
@@ -11,21 +12,44 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nombre %>
-    <%= f.text_field :nombre %>
+  <div class="input-group">
+    <span class="input-group-addon">:)</span>
+    <%= f.text_field :nombre, :class => "form-control", :placeholder => "Nombre" %>
   </div>
   <br>
-  <div class="field">
-    <%= f.label :rating %>
-    <%= f.text_field :rating, :placeholder => "Entre 1 - 10" %>
+  <div class="input-group">
+    <span class="input-group-addon">:)</span>
+    <%= f.text_field :rating, :class => "form-control", :placeholder => "Rating" %>
   </div>
   <br>
-  <div class="field">
+  <!-- <div class="field">
     <%= f.select :posicion, options_for_select([["Portero", "por"], ["Defensa", "def"], ["Medio", "med"], ["Delantero", "del"]]) %>
+  </div> -->
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="input-group">
+        <span class="input-group-addon">
+          <%= f.radio_button :posicion, "por" %>
+          <%= f.label :posicion, "Portero" %>
+        </span>
+        <span class="input-group-addon">
+          <%= f.radio_button :posicion, "def" %>
+          <%= f.label :posicion, "Defensa" %>
+        </span>
+        <span class="input-group-addon">
+          <%= f.radio_button :posicion, "med" %>
+          <%= f.label :posicion, "Medio" %>
+        </span>
+        <span class="input-group-addon">
+          <%= f.radio_button :posicion, "del" %>
+          <%= f.label :posicion, "Delantero" %>
+        </span>
+      </div>
+    </div>
   </div>
   <br>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div>
