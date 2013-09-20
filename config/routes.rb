@@ -1,4 +1,8 @@
 FutCtin::Application.routes.draw do
+  get "rol_de_juego" => "rol_de_juego#index", :as => "rol_de_juego"
+   
+  get "tabla" => "tabla#index", :as => "tabla"
+
   get "equipos" => "equipos#index", :as => "equipos"
 
   get "jugadores" => "jugadores#index", :as => "jugadores"
