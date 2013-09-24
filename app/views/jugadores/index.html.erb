@@ -3,48 +3,49 @@
 <div class="myTabla">
   <div class="panel panel-primary">
     <div class="panel-heading">Lista de jugadores</div>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Posicion</th>
-            <th>Rating</th>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Posicion</th>
+          <th>Rating</th>
+          <th></th>
+          <% if current_user %>
             <th></th>
-            <% if current_user %>
-              <th></th>
-              <th></th>
-            <% end %>
-          </tr>
-        </thead>
+            <th></th>
+          <% end %>
+        </tr>
+      </thead>
 
-        <tbody>
-          <% @jugadores.each do |jugadore| %>
-            <tr>
+      <tbody>
+        <% @jugadores.each do |jugadore| %>
+          <tr id="<%= dom_id(jugadore) %>">
+            
               <td><%= jugadore.nombre %></td>
               <td><%= jugadore.posicion %></td>
               <td><%= jugadore.rating %></td>
               <td><%= link_to 'Show', jugadore %></td>
               <% if current_user %>
                 <td><%= link_to 'Edit', edit_jugadore_path(jugadore) %></td>
-                <td><%= link_to 'Destroy', jugadore, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              <% end %>
-            </tr>
-          <% end %>
-        </tbody>
-
-        <tfoot>
-          <tr>
-            <td>Total de jugadores</td>
-            <td><%= @jugadores.length %></td>
-            <td></td>
-            <td></td>
-            <% if current_user %>
-              <td><%= link_to "Nuevo Jugador", new_jugadore_path %></td>
-              <td></td>
+                <td><%= link_to 'Destroy', jugadore, method: :delete, data: { confirm: 'Are you sure?', remote: true } %></td>
+            
             <% end %>
           </tr>
-        </tfoot>
-      </table>
-    </div>
+        <% end %>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td>Total de jugadores</td>
+          <td><%= @jugadores.length %></td>
+          <td></td>
+          <td></td>
+          <% if current_user %>
+            <td><%= link_to "Nuevo Jugador", new_jugadore_path %></td>
+            <td></td>
+          <% end %>
+        </tr>
+      </tfoot>
+    </table>
   </div>
 </div>

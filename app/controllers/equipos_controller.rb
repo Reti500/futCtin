@@ -10,9 +10,26 @@ class EquiposController < ApplicationController
   end
 
   def new
+    @equipo = Equipo.new()
   end
 
   def create
+    @equipo = Equipo.new( equipo_params )
+
+    respond_to do |format|
+      if @equipo.save
+        @equipo.create_datos_equipo(:juegosJ => 0, :juegosG => 0, 
+          :juegosE => 0, :juegosP => 0, :golesF => 0, :golesC => 0,
+          :diferencia => 0, :puntos => 0)
+
+        format.html { redirect_to @equipo, notice: 'Equipo was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @equipo }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @equipo.errors, status: :unprocessable_entity }
+      end
+    end
+
   end
 
   def edit
@@ -22,6 +39,11 @@ class EquiposController < ApplicationController
   end
 
   def destroy
+    @equipo.destroy
+    respond_to do |format|
+      format.html { redirect_to :equipos }
+      format.json { head :no_content }
+    end
   end
 
   private

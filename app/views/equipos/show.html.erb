@@ -1,2 +1,56 @@
-<h1>Equipos#show</h1>
-<p>Find me in app/views/equipos/show.html.erb</p>
+<h1>Equipo <%= @equipo.nombre %></h1>
+
+<br>
+
+<div class="myTabla">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Lista de equipos</div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>JJ</th>
+          <th>JG</th>
+          <th>JE</th>
+          <th>JP</th>
+          <th>GF</th>
+          <th>GC</th>
+          <th>DF</th>
+          <th>PTS</th>
+          <% if current_user %>
+            <th></th>
+            <th></th>
+          <% end %>
+        </tr>
+      </thead>
+
+      <tbody>
+          <tr>
+            <td><%= @equipo.nombre %></td>
+            
+            <% @datos = @equipo.datos_equipo %>
+            <% if @datos %>
+            	<td><%= @datos.juegosJ %></td>
+            	<td><%= @datos.juegosG %></td>
+            	<td><%= @datos.juegosE %></td>
+            	<td><%= @datos.juegosP %></td>
+            	<td><%= @datos.golesF %></td>
+            	<td><%= @datos.golesC %></td>
+            	<td><%= @datos.diferencia %></td>
+            	<td><%= @datos.puntos %></td>
+	        <% end %>
+
+          	<% if current_user %>
+            	<td><%= link_to 'Edit', edit_equipo_path(@equipo) %></td>
+           	 	<td><%= link_to 'Destroy', @equipo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          	<% end %>
+          </tr>
+      </tbody>
+
+      <tfoot>
+      	<tr>
+      	</tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

@@ -1,2 +1,6 @@
-<h1>Equipos#edit</h1>
-<p>Find me in app/views/equipos/edit.html.erb</p>
+<h1>Editar equipo <%= @equipo.nombre %></h1>
+<br><br>
+<%= render 'form' %>
+<br>
+<%= link_to 'Show', @equipo %> |
+<%= link_to 'Back', equipos_path %>

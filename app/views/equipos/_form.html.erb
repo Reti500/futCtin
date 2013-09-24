@@ -1,2 +1,24 @@
-<h1>Equipos#_form</h1>
-<p>Find me in app/views/equipos/_form.html.erb</p>
+<div class="formulario">
+<%= form_for(@equipo) do |f| %>
+  <% if @equipo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@equipo.errors.count, "error") %> prohibited this equipo from being saved:</h2>
+
+      <ul>
+      <% @equipo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="input-group">
+    <span class="input-group-addon">:)</span>
+    <%= f.text_field :nombre, :class => "form-control", :placeholder => "Nombre" %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
