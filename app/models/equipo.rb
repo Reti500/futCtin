@@ -2,5 +2,5 @@ class Equipo < ActiveRecord::Base
 	attr_accessible :nombre
 
 	has_many :jugadores
-	has_one :datos_equipo
+	has_one :datos_equipo, dependent: :destroy
 end
