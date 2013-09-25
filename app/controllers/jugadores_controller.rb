@@ -37,6 +37,18 @@ class JugadoresController < ApplicationController
     end
   end
 
+  # GET /jugadores/1/addAEquipo
+  def addToEquipo
+    @jugadore = Jugadore.find( params[:id] )
+
+    unless @jugadore.equipo
+      @equipo = Equipo.find_by_nombre( params[:nombre_equipo] )
+      if @equipo.jugadores.length < 3
+        @equipo << @jugadore
+      end
+    end
+  end
+
   # PATCH/PUT /jugadores/1
   # PATCH/PUT /jugadores/1.json
   def update

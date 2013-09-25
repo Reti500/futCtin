@@ -1,0 +1,39 @@
+<br>
+
+<div class="myTabla">
+  <div class="panel panel-primary">
+    <div class="panel-heading">Jugadores disponibles</div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Posicion</th>
+          <th>Rating</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @jugadores.each do |jugadore| %>
+          <% unless jugadore.equipo %>
+            <tr id="<%= dom_id(jugadore) %>">
+              
+                <td><%= jugadore.nombre %></td>
+                <td><%= jugadore.posicion %></td>
+                <td><%= jugadore.rating %></td>
+                
+                <% if current_user %>
+                  <td><%= link_to 'ADD', jugadore %></td>
+                <% end %>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+
+      <tfoot>
+        <tr>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

@@ -4,6 +4,8 @@ FutCtin::Application.routes.draw do
   get "tabla" => "tabla#index", :as => "tabla"
 
   get "equipos" => "equipos#index", :as => "equipos"
+  get "equipos/selectJugador/:id" => "equipos#selectJugador", :as => "selectJugador"
+  get "equipos/addJugador/:id" => "equipos#addJugador", :as => "addJugador"
 
   get "jugadores" => "jugadores#index", :as => "jugadores"
 

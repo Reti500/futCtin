@@ -1,12 +1,28 @@
 class EquiposController < ApplicationController
-  before_action :set_equipo, only: [:show, :edit, :update, :destroy]
+  before_action :set_equipo, only: [:show, :edit, :selectJugador, :update, :destroy]
   before_filter :require_login, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @equipos = Equipo.all.order("id ASC")
+    @jugadores = Jugadore.all.order( "nombre ASC" )
+
+    respond_to do |format|
+      format.html
+      format.json
+      format.js
+    end
   end
 
   def show
+  end
+
+  def selectJugador
+    @jugadores = Jugadore.all
+  end
+
+  def addJugador
+    
+
   end
 
   def new

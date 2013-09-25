@@ -9,14 +9,9 @@
       <thead>
         <tr>
           <th>Nombre</th>
-          <th>JJ</th>
-          <th>JG</th>
-          <th>JE</th>
-          <th>JP</th>
-          <th>GF</th>
-          <th>GC</th>
-          <th>DF</th>
-          <th>PTS</th>
+          <th>Jugador 1</th>
+          <th>Jugador 2</th>
+          <th>Jugador 3</th>
           <% if current_user %>
             <th></th>
             <th></th>
@@ -29,20 +24,18 @@
           <tr>
             <td><%= equipo.nombre %></td>
             
-            <% @datos = equipo.datos_equipo %>
-            <% if @datos %>
-            	<td><%= @datos.juegosJ %></td>
-            	<td><%= @datos.juegosG %></td>
-            	<td><%= @datos.juegosE %></td>
-            	<td><%= @datos.juegosP %></td>
-            	<td><%= @datos.golesF %></td>
-            	<td><%= @datos.golesC %></td>
-            	<td><%= @datos.diferencia %></td>
-            	<td><%= @datos.puntos %></td>
+            <% equipo.jugadores.each do |jug| %>
+            	<td><%= jug.nombre %></td>
 	        	<% end %>
 
-          	<td><%= link_to 'Show', equipo %></td>
           	<% if current_user %>
+              <% if equipo.jugadores.length < 3 %>
+                <td>
+                  <ul class="nav nav-pills nav-stacked">
+                    <a href="<%= %>"></a>
+                  </ul>
+                </td>
+              <% end %>
             	<td><%= link_to 'Edit', edit_equipo_path(equipo) %></td>
            	 	<td><%= link_to 'Destroy', equipo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           	<% end %>
